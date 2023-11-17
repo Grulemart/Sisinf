@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Iniciar Sesión</title>
+    <style>
+      /* Estilos generales */
+      body {
+        text-align: center;
+        padding-top: 20px;
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        width: 30%;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Estilos para los botones y elementos de inicio de sesión */
+      .login-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 200px;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .login-button {
+        width: 150px;
+        padding: 15px;
+        margin: 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      .footer-text {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="TOGETHER.png" alt="Logo">
+
+      <form method="get">
+        <input type="email" placeholder="Correo Electrónico" required>
+        <input type="password" pattern=".{8,}" name="contrasena" id="password" placeholder="Contraseña" required oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 caracteres')">
+        <button type="submit" formaction="inicio.html">ACEPTAR</button>
+      </form>
+    </div>
+  </body>
+</html>

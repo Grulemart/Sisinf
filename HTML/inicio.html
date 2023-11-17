@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>INICIO</title>
+    <style>
+      #base {
+        text-align: center;
+        padding-top: 20px;
+      }
+
+      img {
+        width: 30%;
+        max-width: 100%;
+        height: auto;
+      }
+
+      button {
+        display: block;
+        width: 30%;
+        margin: 10px auto;
+        text-align: center;
+        padding: 15px;
+        font-size: 18px;
+      }
+
+      button.right-top {
+        width: 30%;
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      button:not(.right-top) {
+        font-size: 20px;
+      }
+
+      .right-top button:nth-child(1) {
+        margin-bottom: 10px; /* Aumenté la separación aquí */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="base" class="">
+      <!-- Botones de Iniciar Sesión y Registrarse en la esquina superior derecha -->
+      <button onclick="location.href='crear_cuenta.html'" class="right-top">REGISTRARSE</button>
+      <button onclick="location.href='iniciar_sesion.html'" class="right-top" style="top: 90px;">INICIAR SESIÓN</button>
+      
+      <!-- Imagen en la parte superior -->
+      <img src="TOGETHER.png" alt="Descripción de la imagen">
+      
+      <!-- Botones restantes -->
+      <button onclick="location.href='insertar_anuncio.html'">INSERTAR ANUNCIO</button>
+      <button onclick="location.href='busqueda_de_compa_ero.html'">BUSCAR COMPAÑEROS</button>
+      <button onclick="location.href='busqueda_de_piso.html'">BUSCAR PISOS</button>
+    </div>
+    <script src="resources/scripts/axure/ios.js"></script>
+  </body>
+</html>
