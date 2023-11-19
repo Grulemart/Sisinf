@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Acceso a Base de Datos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+    <script type="module" src="./scripts/dao/EstudianteDAO.js"></script>
+    <script type="module" src="./scripts/vo/EstudianteVO.js"></script>
+</head>
+<body>
+    <h1>Prueba de Acceso a Base de Datos</h1>
+
+    <label for="usuario">Buscar Usuario:</label>
+    <input type="text" id="usuarioInput" placeholder="Ingrese un nombre de usuario">
+    <button onclick="buscarUsuario()">Buscar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+
+        console.log("primera prueba")
+
+        // Datos simulados de la base de datos
+        const estudianteVO = new EstudianteVO("correo", "Pepe", "", "", "", "", "");
+
+        estudianteDAO.insertar(estudianteVO);
+
+        function buscarUsuario() {
+
+            var input = EstudianteDAO.obtenerPorId('usuarioInput')
+
+            var inputUsuario = document.getElementById('usuarioInput').value;
+            var resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+            // Buscar en la base de datos simulada
+            var usuarioEncontrado = baseDeDatos.find(function(usuario) {
+                return usuario.usuario === inputUsuario;
+            });
+
+            if (usuarioEncontrado) {
+                // Mostrar los detalles del usuario
+                resultadoDiv.innerHTML = '<h3>Usuario Encontrado:</h3>' +
+                    '<p>ID: ' + usuarioEncontrado.id + '</p>' +
+                    '<p>Usuario: ' + usuarioEncontrado.usuario + '</p>' +
+                    '<p>Email: ' + usuarioEncontrado.email + '</p>';
+            } else {
+                resultadoDiv.innerHTML = '<p>Usuario no encontrado.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
