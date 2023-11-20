@@ -1,57 +1,95 @@
 ﻿<!DOCTYPE html>
-<html>
-  <head>
-    <title>INICIO</title>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO - Together</title>
     <style>
-      #base {
-        text-align: center;
-        padding-top: 20px;
-      }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-      img {
-        width: 30%;
-        max-width: 100%;
-        height: auto;
-      }
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-      button {
-        display: block;
-        width: 30%;
-        margin: 10px auto;
-        text-align: center;
-        padding: 15px;
-        font-size: 18px;
-      }
+        #base {
+            text-align: center;
+            padding-top: 20px;
+        }
 
-      button.right-top {
-        width: 30%;
-        font-size: 14px;
-        padding: 10px;
-      }
+        img {
+            width: 30%; /* Ajusté el ancho de la imagen al 30% */
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
 
-      button:not(.right-top) {
-        font-size: 20px;
-      }
+        .action-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #009688;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+        }
 
-      .right-top button:nth-child(1) {
-        margin-bottom: 10px; /* Aumenté la separación aquí */
-      }
+        .action-button:hover {
+            background-color: #00796b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #009688;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilos adicionales para los botones */
+        .right-top {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Estilos para alinear los botones en línea */
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
     </style>
-  </head>
-  <body>
-    <div id="base" class="">
-      <!-- Botones de Iniciar Sesión y Registrarse en la esquina superior derecha -->
-      <button onclick="location.href='crear_cuenta.html'" class="right-top">REGISTRARSE</button>
-      <button onclick="location.href='iniciar_sesion.html'" class="right-top" style="top: 90px;">INICIAR SESIÓN</button>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Together</h1>
+    </header>
+    <div id="base">
+        <!-- Imagen en la parte superior -->
+        <img src="TOGETHER.png" alt="Descripción de la imagen">
       
-      <!-- Imagen en la parte superior -->
-      <img src="TOGETHER.png" alt="Descripción de la imagen">
-      
-      <!-- Botones restantes -->
-      <button onclick="location.href='insertar_anuncio.html'">INSERTAR ANUNCIO</button>
-      <button onclick="location.href='busqueda_de_compa_ero.html'">BUSCAR COMPAÑEROS</button>
-      <button onclick="location.href='busqueda_de_piso.html'">BUSCAR PISOS</button>
+        <!-- Botones restantes en línea -->
+        <div class="button-container">
+            <button class="action-button" onclick="location.href='insertar_anuncio.html'">INSERTAR ANUNCIO</button>
+            <button class="action-button" onclick="location.href='busqueda_de_compa_ero.html'">BUSCAR COMPAÑEROS</button>
+            <button class="action-button" onclick="location.href='busqueda_de_piso.html'">BUSCAR PISOS</button>
+        </div>
     </div>
     <script src="resources/scripts/axure/ios.js"></script>
-  </body>
+</body>
 </html>
+

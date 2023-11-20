@@ -1,93 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <style>
-body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f4;
-    }
-    
-    .container {
-      width: 50%;
-      margin: 0 auto;
-      text-align: left;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Anuncio - Together</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
 
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+        .container {
+            margin-top: 50px;
+            width: 70%;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    label {
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
+        img {
+            width: 50%;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    button {
-      padding: 12px 20px;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }  </style>
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        button {
+            width: 80%;
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img src="TOGETHER.png" alt="Imagen del Anuncio" style="width: 50%; margin: 0 auto; display: block; border-radius: 8px;">
-    <form method="get" onsubmit="return validateForm()">
+  <header>
+    <h1>Insertar Anuncio</h1>
+  </header> 
+    <div class="container">
+        <img src="TOGETHER.png" alt="Imagen del Anuncio">
 
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
+        <form method="get" onsubmit="return validateForm()">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-      <label for="correo">Correo Electronico:</label>
-      <input type="email" id="correo" name="correo" required>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
 
-      <label for="telefono">Telefono:</label>
-      <input type="number" pattern="[0-9]{9}" id="telefono" name="telefono" required oninvalid="this.setCustomValidity('Introduzca un número de teléfono válido')">
+            <label for="telefono">Teléfono:</label>
+            <input type="number" pattern="[0-9]{9}" id="telefono" name="telefono" required title="Introduzca un número de teléfono válido">
 
-      <label for="presupuesto">Presupuesto:</label>">
-      <input type = "number" id = "presupuesto" name="presupuesto" pattern="[0-9]{3}" oninvalid="this.setCustomValidity('Introduzca un número de 3 cifras')">
+            <label for="presupuesto">Presupuesto:</label>
+            <input type="number" id="presupuesto" name="presupuesto" pattern="[0-9]{3}" title="Introduzca un número de 3 cifras" required>
 
-      <label for="ubicacion">Ubicacion:</label>
-      <input type="text" id="ubicacion" name="ubicacion" required>  
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" required>
 
-      <button type="submit" formaction="inicio.html" >Insertar Anuncio</button>
-    </form>
-  </div>
+            <button type="submit" formaction="inicio.html">Insertar Anuncio</button>
+        </form>
+    </div>
 
-  <script>
-    function validateForm() {
-      const nombre = document.getElementById('nombre').value;
-      const email = document.getElementById('email').value;
-      const telefono = document.getElementById('telefono').value;
-      const ubicacion = document.getElementById('ubicacion').value;
-      const presupuesto = document.getElementById('presupuesto').value;
-      if (nombre === '' || email === '' || telefono === '' || ubicacion === '' || presupuesto === '') {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return false;
-      }
-      return true;
-    }
-  </script>
+    <script>
+        function validateForm() {
+            const ubicacion = document.getElementById('ubicacion').value;
+            const presupuesto = document.getElementById('presupuesto').value;
+            if (ubicacion === '' || presupuesto === '') {
+                alert('Por favor, complete todos los campos obligatorios.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

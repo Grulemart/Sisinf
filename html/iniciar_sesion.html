@@ -1,70 +1,93 @@
 ﻿<!DOCTYPE html>
-<html>
-  <head>
-    <title>Iniciar Sesión</title>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Together</title>
     <style>
-      /* Estilos generales */
-      body {
-        text-align: center;
-        padding-top: 20px;
-        font-family: Arial, sans-serif;
-      }
-      
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+        }
 
-      img {
-        width: 30%;
-        max-width: 100%;
-        height: auto;
-      }
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
 
-      /* Estilos para los botones y elementos de inicio de sesión */
-      .login-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-      }
+        .container {
+            margin-top: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-      input[type="email"],
-      input[type="password"] {
-        width: 200px;
-        padding: 10px;
-        margin: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
 
-      .login-button {
-        width: 150px;
-        padding: 15px;
-        margin: 10px;
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 18px;
-      }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
 
-      .footer-text {
-        margin-top: 20px;
-      }
+        input[type="email"],
+        input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 80%;
+            padding: 15px;
+            margin: 10px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Together</h1>
+    </header>
     <div class="container">
-      <img src="TOGETHER.png" alt="Logo">
+        <img src="TOGETHER.png" alt="Logo">
 
-      <form method="get">
-        <input type="email" placeholder="Correo Electrónico" required>
-        <input type="password" pattern=".{8,}" name="contrasena" id="password" placeholder="Contraseña" required oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 caracteres')">
-        <button type="submit" formaction="inicio.html">ACEPTAR</button>
-      </form>
+        <form method="get">
+            <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" id="password" placeholder="Contraseña" pattern=".{8,}" title="La contraseña debe tener como mínimo 8 caracteres" required>
+            <button type="submit" formaction="inicio.html">ACEPTAR</button>
+        </form>
     </div>
-  </body>
+</body>
 </html>
+
+
+
+

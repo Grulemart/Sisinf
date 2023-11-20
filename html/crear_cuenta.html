@@ -1,68 +1,108 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Formulario de Registro</title>
-  <style>
-    /* Estilos... (los mismos estilos que antes) */
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro - Together</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-    }
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+        }
 
-    /* Estilos para los campos del formulario */
-    input {
-      width: 200px;
-      padding: 10px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            width: 70%;
+            margin-top: 20px;
+        }
 
-    button {
-      width: 150px;
-      padding: 15px;
-      margin: 10px;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 18px;
-    }
-  </style>
+        img {
+            width: 30%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 150%;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 70%;
+            padding: 15px;
+            margin: 10px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img src="TOGETHER.png" alt="Imagen">
+    <header>
+        <h1>Crear Cuenta</h1>
+    </header>
+    <div class="container">
+        <img src="TOGETHER.png" alt="Imagen">
 
-    <form method="get" onsubmit="return validatePassword()">
-      <input type="text" name="nombre" placeholder="Nombre" required><br>
-      <input type="email" name="email" placeholder="Correo Electrónico" required><br>
-      <input type="tel" pattern="[0-9]{9}" name="telefono" placeholder="Teléfono" required oninvalid="this.setCustomValidity('Introduzca un número de teléfono válido')"><br>
-      <input type="password" pattern=".{8,}" name="contrasena" id="password" placeholder="Contraseña" required oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 carácteres')"><br>
-      <input type="password" name="confirmar_contrasena" id="confirmPassword" placeholder="Confirmar Contraseña" required><br>
-      <button type="submit" formaction="inicio.html">Registrarse</button>
-    </form>
-  </div>
+        <form method="get" onsubmit="return validatePassword()">
+            <input type="text" name="nombre" placeholder="Nombre" required><br>
+            <input type="email" name="email" placeholder="Correo Electrónico" required><br>
+            <input type="tel" name="telefono" placeholder="Teléfono" pattern="[0-9]{9}" title="Inserte un numero de telefono valido" required><br>
+            <input type="password" pattern=".{8,}" name="contrasena" id="password" placeholder="Contraseña" required title="La contraseña debe tener como mínimo 8 caracteres"><br>
+            <input type="password" name="confirmar_contrasena" id="confirmPassword" placeholder="Confirmar Contraseña" required><br>
 
-  <script>
-    function validatePassword() {
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
+            <button type="submit" formaction="inicio.html">Registrarse</button>
+        </form>
+    </div>
 
-      if (password !== confirmPassword) {
-        alert('Las contraseñas no coinciden');
-        return false; // Evitar que se envíe el formulario
-      }
-      return true; // El formulario se envía si las contraseñas coinciden
-    }
-  </script>
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return false; // Evitar que se envíe el formulario
+            }
+            return true; // El formulario se envía si las contraseñas coinciden
+        }
+    </script>
 </body>
 </html>
+
