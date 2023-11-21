@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO - Together</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #base {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        img {
+            width: 30%; /* Ajusté el ancho de la imagen al 30% */
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #009688;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+        }
+
+        .action-button:hover {
+            background-color: #00796b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #009688;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilos adicionales para los botones */
+        .right-top {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Estilos para alinear los botones en línea */
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Together</h1>
+    </header>
+    <div id="base">
+        <!-- Imagen en la parte superior -->
+        <img src="TOGETHER.png" alt="Descripción de la imagen">
+      
+        <!-- Botones restantes en línea -->
+        <div class="button-container">
+            <button class="action-button" onclick="location.href='insertar_anuncio.html'">INSERTAR ANUNCIO</button>
+            <button class="action-button" onclick="location.href='busqueda_de_compa_ero.html'">BUSCAR COMPAÑEROS</button>
+            <button class="action-button" onclick="location.href='busqueda_de_piso.html'">BUSCAR PISOS</button>
+        </div>
+    </div>
+    <script src="resources/scripts/axure/ios.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Filtros</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 8px 8px; /* Redondea solo la parte inferior de la cabecera */
+        }
+
+        #content {
+            margin-top: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #image-container {
+            position: relative;
+            height: 300px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+
+        #filters {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+        }
+
+        .filter-tab {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-tab:hover {
+            background-color: #2071b3;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        select, input[type="text"], input[type="submit"] {
+            margin-top: 5px;
+            padding: 10px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Filtrar Compañeros</h1>
+    </header>
+
+    <div id="content">
+        <div id="image-container">
+            <img src="TOGETHER.png" alt="Imagen">
+        </div>
+
+        <!-- <form action="presupuesto">
+            <label for="presupuesto">Presupuesto</label>
+            <select name="presupuesto" id="presupuesto">
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="400">400</option>
+                <option value="500">500</option>
+                <option value="600">600</option>
+                <option value="700">700</option>
+                <option value="+800">+800</option>
+            </select>
+
+            <input type="text" placeholder="Ubicacion" pattern="[A-Z][a-z]*" title="Por favor, ingrese una palabra que comience en mayúscula">
+
+            <input type="submit" value="ACEPTAR" onclick="location.href='busqueda_de_compa_ero.html'" />
+        </form> -->
+        <form action="busqueda_de_compa_ero.html" onsubmit="return redirigir()">
+          <label for="presupuesto">Presupuesto</label>
+          <select name="presupuesto" id="presupuesto">
+              <option value="100-200">100-200</option>
+              <option value="200-300">200-300</option>
+              <option value="300-400">300-400</option>
+              <option value="400-500">400-500</option>
+              <option value="500-600">500-600</option>
+              <option value="600-700">600-700</option>
+              <option value="700-800">700-800</option>
+              <option value="+800">+800</option>
+          </select>
+      
+          <input type="text" placeholder="Ubicacion" pattern="[A-Z][a-z]*" title="Por favor, ingrese una palabra que comience en mayúscula">
+      
+          <input type="submit" value="ACEPTAR" />
+      </form>
+      
+      <script>
+          function redirigir() {
+              // Obtener el valor del presupuesto seleccionado (esto es opcional)
+              var presupuestoSeleccionado = document.getElementById("presupuesto").value;
+      
+              // Puedes hacer algo con el valor del presupuesto si lo necesitas
+      
+              // Redirigir a la página de destino
+              window.location.href = 'busqueda_de_compa_ero.html';
+      
+              // Devolver false para evitar que el formulario se envíe de forma estándar
+              return false;
+          }
+      </script>
+      
+    </div>
+
+</body>
+</html>
