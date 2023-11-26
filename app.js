@@ -9,12 +9,18 @@ const app = express()
 const port = 3000
 
 // Definir opciones de la base de datos
+/*
 const cliente = {
   user: 'postgres',
   password: 'asdf',
   host: 'localhost',
   port: 5432,
   database: 'together',
+}
+*/
+
+const cliente = {
+  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
 }
 
 app.use(bodyParser.urlencoded({ extended: true }));
