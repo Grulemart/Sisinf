@@ -1,7 +1,7 @@
 {
   "name": "sisinf",
   "version": "1.0.0",
-  "description": "Proyecto de ejemplo para la asignatura de Sistemas de la Informacion",
+  "description": "Proyecto para la asignatura de Sistemas de la Informacion",
   "main": "app.js",
   "scripts": {
     "devStart": "nodemon app.js",
