@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/resources/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/resources/icon.ico" type="image/x-icon" />
+    <title>Información de Pisos - Together</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+            width: 70%;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Información de Pisos</h1>
+    </header> 
+    <div class="container">
+        <% for (let i = 0; i < data.length; i++) { %>
+            <div class="info-section">
+                <label for="ubicacion<%= i %>">Ubicación:</label>
+                <p id="ubicacion<%= i %>"><%= data[i].ubicacion %></p>
+        
+                <label for="precio<%= i %>">Precio:</label>
+                <p id="precio<%= i %>">$<%= data[i].precio %></p>
+        
+                <label for="habitaciones<%= i %>">Habitaciones:</label>
+                <p id="habitaciones<%= i %>"><%= data[i].habitaciones %></p>
+        
+                <label for="descripcion<%= i %>">Descripción:</label>
+                <p id="descripcion<%= i %>"><%= data[i].descripcion %></p>
+        
+                <label for="correo_estudiante<%= i %>">Correo de contacto:</label>
+                <p id="correo_estudiante<%= i %>"><%= data[i].correo_estudiante %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

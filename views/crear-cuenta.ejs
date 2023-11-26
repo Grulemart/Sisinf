@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/resources/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/resources/icon.ico" type="image/x-icon" />
+    <title>Formulario de Registro - Together</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            width: 70%;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 30%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 150%;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 70%;
+            padding: 15px;
+            margin: 10px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Crear Cuenta</h1>
+    </header>
+    <div class="container">
+        <img src="/resources/TOGETHER.png" alt="Imagen">
+
+        <form method="get" onsubmit="return validatePassword()">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required><br>
+            <input type="email" id="correo" name="email" placeholder="Correo Electrónico" required><br>
+            <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" pattern="[0-9]{9}" title="Inserte un numero de telefono valido" required><br>
+            <input type="number" id="edad" name="edad" placeholder="Edad" required><br>
+            <input type="text" id="profesion" name="profesion" placeholder="Profesión" required><br>
+            <input type="text" id="descripcion" name="descripcion" placeholder="Descripción" required><br>
+            <input type="password" pattern=".{8,}" name="contrasena" id="password" placeholder="Contraseña" required title="La contraseña debe tener como mínimo 8 caracteres"><br>
+            <input type="password" name="confirmar_contrasena" id="confirmPassword" placeholder="Confirmar Contraseña" required><br>
+
+            <button type="submit" onclick="registerUser()">Registrarse</button>
+        </form>
+    </div>
+
+    <script>
+
+        async function registerUser() {
+            event.preventDefault()
+            
+            if (!validatePassword) {
+                return
+            }
+
+            const data = {
+                nombre: document.getElementById('nombre').value,
+                correo: document.getElementById('correo').value,
+                telefono: document.getElementById('telefono').value,
+                edad: document.getElementById('edad').value,
+                profesion: document.getElementById('profesion').value,
+                descripcion: document.getElementById('descripcion').value,
+                password: document.getElementById('password').value,
+            }
+
+            try{
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+
+                if (response.ok) {
+                    window.location.href = '/inicio';
+                } else {
+                    console.error('Registro de usuario fallido', response.status)
+                }
+
+            } catch (error) {
+                console.error('Error al registrar usuario', error)
+            }
+        }
+
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return false; // Evitar que se envíe el formulario
+            }
+            return true; // El formulario se envía si las contraseñas coinciden
+        }
+
+    </script>
+</body>
+</html>
+

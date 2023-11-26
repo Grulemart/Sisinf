@@ -1,12 +1,36 @@
 class EstudianteVO {
-    constructor(correo, nombre, telefono, password, idP_E) {
+    constructor(correo, nombre, edad, telefono, profesion, descripcion, password) {
         this.correo = correo;
         this.nombre = nombre;
-        this.nTelefono = telefono;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.profesion = profesion;
+        this.descripcion = descripcion;
         this.passwd = password;
-        this.idp_e = idP_E;
-        this.feche = null; // La propiedad fechE se inicializa como null, ya que en Java no se proporciona un valor inicial.
-        this.fechs = null; // La propiedad fechS se inicializa como null, ya que en Java no se proporciona un valor inicial.
+    }
+
+    setedad(edad) {
+        this.edad = edad
+    }
+
+    getedad() {
+        return this.edad
+    }
+
+    setProfesion(profesion) {
+        this.profesion = profesion;
+    }
+
+    setDescripcion(descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    getProfesion() {
+        return this.profesion;
+    }
+
+    getDescripcion() {
+        return this.descripcion;
     }
 
     getnombre() {
@@ -26,11 +50,11 @@ class EstudianteVO {
     }
 
     gettelefono() {
-        return this.nTelefono;
+        return this.telefono;
     }
 
     settelefono(telefono) {
-        this.nTelefono = telefono;
+        this.telefono = telefono;
     }
 
     getpassword() {
@@ -66,4 +90,4 @@ class EstudianteVO {
     }
 }
 
-export default EstudianteVO;
+module.exports = EstudianteVO;

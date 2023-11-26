@@ -1,10 +1,18 @@
 class PisoVO {
-    constructor(idPiso, precio, descripcion, residentes, ubicacion) {
-        this.idpiso = idPiso;
+    constructor(correo, precio, descripcion, habitaciones, ubicacion) {
+        this.correo = correo;
         this.precio = precio;
         this.descripcion = descripcion;
-        this.residentes = residentes;
+        this.habitaciones = habitaciones;
         this.ubicacion = ubicacion;
+    }
+
+    getCorreo() {
+        return this.correo;
+    }
+
+    setCorreo(correo) {
+        this.correo = correo;
     }
 
     getIdPiso() {
@@ -31,12 +39,12 @@ class PisoVO {
         this.descripcion = descripcion;
     }
 
-    getResidentes() {
-        return this.residentes;
+    getHabitaciones() {
+        return this.habitaciones;
     }
 
-    setResidentes(residentes) {
-        this.residentes = residentes;
+    setHabitaciones(habitaciones) {
+        this.habitaciones = habitaciones;
     }
 
     getUbicacion() {

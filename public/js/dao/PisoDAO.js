@@ -1,37 +1,35 @@
-const { db, closeDb } = require("./ConnectionManager");
-const PisoVO = require("./PisoVO")
+const { db, closeDb } = require("../conexion/ConnectionManager.js");
+const PisoVO = require("../vo/PisoVO.js")
 
-class PisoDAO extends BaseDAO {
+class PisoDAO {
 
-  constructor(db) {
-    super(db);
+  constructor(dbConfig) {
+    this.dbConfig = dbConfig
   }
 
   async insertar(piso) {
-    const query = `INSERT INTO Piso (idpiso, precio, descripcion, residentes, ubicacion) VALUES ($1, $2, $3, $4, $5) RETURNING idpiso`;
-    // Crear una instancia de PisoVO
-    const pisoVO = new PisoVO(piso.idpiso, piso.precio, piso.descripcion, piso.residentes, piso.ubicacion);
-
-    // Obtener los valores de PisoVO usando sus métodos
-    const values = [pisoVO.getIdPiso(), pisoVO.getPrecio(), pisoVO.getDescripcion(), pisoVO.getResidentes(), pisoVO.getUbicacion()];
+    const query = `INSERT INTO Piso (correo_estudiante, precio, descripcion, habitaciones, ubicacion) 
+    VALUES ($1, $2, $3, $4, $5)`;
+    
+    const pisoVO = new PisoVO(piso.correo, piso.precio, piso.descripcion, piso.habitaciones, piso.ubicacion);
+    const values = [pisoVO.getCorreo(), pisoVO.getPrecio(), pisoVO.getDescripcion(), pisoVO.getHabitaciones(), pisoVO.getUbicacion()];
 
     try {
-      const conexion = await db();
-      const result = await conexion.query(query, values);
+      const conexion = await db(this.dbConfig);
+      await conexion.query(query, values);
       await closeDb(conexion);
-      return result.rows[0].idpiso;
     } catch (error) {
       throw error;
     }
   }
 
-  async obtenerPorId(idpiso) {
-    const query = 'SELECT * FROM Piso WHERE idpiso = $1';
-    const values = [idpiso];
+  async obtenerPorId(correo) {
+    const query = 'SELECT * FROM Piso WHERE correo_estudiante = $1';
+    const values = [correo];
 
     try {
-      const conexion = await db();
-      const result = await conexion.db.query(query, values);
+      const conexion = await db(this.dbConfig);
+      const result = await conexion.query(query, values);
       await closeDb(conexion);
       return result.rows[0]; // Devuelve el objeto PisoVO encontrado
     } catch (error) {
@@ -42,14 +40,14 @@ class PisoDAO extends BaseDAO {
   async actualizar(piso) {
     const query = `
       UPDATE Piso
-      SET precio = $2, descripcion = $3, residentes = $4, ubicacion = $5
-      WHERE idpiso = $1
+      SET precio = $2, descripcion = $3, habitantes = $4, ubicacion = $5
+      WHERE correo_estudiante = $1
     `;
-    const values = [piso.idpiso, piso.precio, piso.descripcion, piso.residentes, piso.ubicacion];
+    const values = [piso.correo, piso.precio, piso.descripcion, piso.habitantes, piso.ubicacion];
 
     try {
-      const conexion = await db();
-      await conexion.db.query(query, values);
+      const conexion = await db(this.dbConfig);
+      await conexion.query(query, values);
       await closeDb(conexion);
       return true; // Indica que la actualización se realizó con éxito
     } catch (error) {
@@ -57,13 +55,13 @@ class PisoDAO extends BaseDAO {
     }
   }
 
-  async eliminar(idpiso) {
-    const query = 'DELETE FROM Piso WHERE idpiso = $1';
-    const values = [idpiso];
+  async eliminar(correo) {
+    const query = 'DELETE FROM Piso WHERE correo_estudiante = $1';
+    const values = [correo];
 
     try {
-      const conexion = await db();
-      await conexion.db.query(query, values);
+      const conexion = await db(this.dbConfig);
+      await conexion.query(query, values);
       await closeDb(conexion);
       return true; // Indica que la eliminación se realizó con éxito
     } catch (error) {
@@ -73,10 +71,11 @@ class PisoDAO extends BaseDAO {
 
   async obtenerTodos() {
     try {
-      const conexion = await db();
-      const anuncios = await conexion.any('SELECT * FROM Piso');
+      const conexion = await db(this.dbConfig);
+      const anuncios = await conexion.query('SELECT * FROM Piso');
       await closeDb(conexion);
-      return anuncios;
+      console.log(anuncios.rows)
+      return anuncios.rows;
     } catch (error) {
       console.error('Error al obtener los pisos:', error);
       throw error;
